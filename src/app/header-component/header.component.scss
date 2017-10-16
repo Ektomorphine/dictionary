@@ -56,3 +56,13 @@
   }
 }
 
+.sidebar {
+  position: fixed;
+  top: 65px;
+  left: 0;
+  background-color: gray;
+  height: 100%;
+  z-index: 0;
+  width: 100px;
+  transition: 2s;
+}

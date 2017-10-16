@@ -12,5 +12,4 @@ export class HeaderComponent {
 
   constructor(public sidebar: SidebarComponent){}
 
-
 }
