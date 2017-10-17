@@ -1,17 +1,16 @@
 import { Component, ElementRef } from '@angular/core';
 
+import { SidebarComponent} from './../sidebar-component/sidebar.component';
+
 @Component({
   selector: 'app-header-component',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  providers: [SidebarComponent]
 })
 export class HeaderComponent {
-  public show = true;
 
-  public onToggle() {
-    let el = document.getElementById('toggle');
-    this.show ? el.style.left = "-100px" : el.style.left = "0";
-    this.show = !this.show;
+  constructor(public sidebar: SidebarComponent){}
 
-  }
+
 }

@@ -1,7 +1,7 @@
 <div class="header" >
-  <div class="sidebar-link">
-    <button (click)="onToggle()"> кнопка</button>
-  </div>
+  <button class="button-sidebar" (click)="this.sidebar.onToggle()">
+    <img src="../assets/sidebar_icon.svg">
+  </button>
   <span class="title">
     Dictionary app
   </span>
@@ -10,9 +10,7 @@
   </form>
 </div>
 
-<div  class="sidebar" id="toggle" >
-  Я сайдбар
-</div>
+
 <!--
 import { Import } from '@angular/core';
 
