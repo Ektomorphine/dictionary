@@ -4,7 +4,28 @@ $text-color-header: #fff;
 $header-button-hover: #6ba0d8;
 $header-button-static: #2776cb;
 
-.text-basic {
+.text-basic-link {
+  position: relative;
   font-family: monospace;
   color: #fff;
+  transition: .5s;
+  left: 0px;
+
+  &:hover {
+    left: 10px;
+  }
+}
+
+.text-basic-input {
+  font-family: monospace;
+}
+
+.container {
+  position: absolute;
+  top: 66px;
+  margin: auto;
+  padding: 30px;
+  width: 82%;
+  height: 90%;
+  right: 0;
 }
