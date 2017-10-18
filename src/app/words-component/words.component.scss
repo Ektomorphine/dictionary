@@ -6,6 +6,7 @@ input {
   border-color: $header-bgc;
   border-style: solid;
   width: 15%;
+  outline: 0;
 }
 
 .button-submit {
@@ -15,4 +16,19 @@ input {
   background-color: #fff;
   border-radius: 8px;
   text-transform: uppercase;
+  outline: 0;
+}
+
+input.ng-touched.ng-invalid {
+  border:solid red 2px;
+}
+input.ng-touched.ng-valid {
+  border:solid green 2px;
+}
+
+.form-hint {
+  display: inline;
+  color: gray;
+  font-style: italic;
+  padding-left: 10px;
 }
