@@ -3,12 +3,12 @@
     <fieldset>
       <legend>Add new word:</legend>
       <p>Word:</p>
-      <input type="text" placeholder="apple">
+      <input type="text" name="word" placeholder="apple" [(ngModel)]="word.word">
       <p>Translation:</p>
-      <input type="text" placeholder="яблоко">
-      <p>Transcription:</p>
-      <input type="text" placeholder="yabloko">
-      <p><button type="submit" class="button-submit">Send</button>
+      <input type="text" name="translation" placeholder="яблоко" [(ngModel)]="word.translation">
+      <p>Transliteration (optional):</p>
+      <input type="text" name="transcription" placeholder="yabloko" [(ngModel)]="word.transcription">
+      <p><button class="button-submit" (click)="submit(word)">Send</button>
 
     </fieldset>
   </form>
