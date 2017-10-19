@@ -13,8 +13,10 @@ import { WordsComponent } from './words-component/words.component';
 
 import { HttpService } from './service/service.component';
 
+import { CanDeactivateGuard } from './routing/exit.component';
+
 const appRoutes: Routes =[
-  { path: 'words', component: WordsComponent}
+  { path: 'words', component: WordsComponent, canDeactivate: [CanDeactivateGuard]}
 ]
 
 @NgModule({
@@ -32,8 +34,8 @@ const appRoutes: Routes =[
     FormsModule,
     ReactiveFormsModule
   ],
-  bootstrap: [ AppComponent ],
-  providers: [ HttpService ]
+  bootstrap: [ AppComponent],
+  providers: [ HttpService, CanDeactivateGuard ]
 })
 export class AppModule {
 }

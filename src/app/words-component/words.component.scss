@@ -17,6 +17,7 @@ input {
   border-radius: 8px;
   text-transform: uppercase;
   outline: 0;
+  cursor: pointer;
 }
 
 input.ng-touched.ng-invalid {
@@ -31,4 +32,12 @@ input.ng-touched.ng-valid {
   color: gray;
   font-style: italic;
   padding-left: 10px;
+}
+
+.disabled:hover {
+  cursor: not-allowed;
+}
+
+.input-option {
+  border-color: $input-option-color !important;
 }

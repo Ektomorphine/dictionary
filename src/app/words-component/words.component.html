@@ -15,20 +15,16 @@
         Required to fill!
       </div>
       <p>Transliteration (optional):</p>
-      <input type="text" name="transcription" placeholder="yabloko"
-      [(ngModel)]="word.transcription" [ngModelOptions]="{standalone: true}"/>
-      <div *ngIf="addWordForm.controls['word'].valid && addWordForm.controls['translation'].valid;
-       else unset">
+      <input class="input-option" type="text" name="transcription" placeholder="yabloko"
+      [(ngModel)]="word.transcription" formControlName="transliteration" />
+      <div *ngIf="addWordForm.controls['word'].valid && addWordForm.controls['translation'].valid; else unset">
         <p><button class="button-submit" (click)="submit(word)">Send</button></p>
       </div>
       <ng-template #unset>
         <div *ngIf="addWordForm.controls['word'].invalid || addWordForm.controls['translation'].invalid">
-          <p><button class="button-submit" disabled >Send</button></p>
+          <p><button class="button-submit disabled" disabled >Send</button></p>
         </div>
       </ng-template>
-
     </fieldset>
-
-
   </form>
 </div>
