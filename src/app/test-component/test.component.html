@@ -1,0 +1,11 @@
+<div *ngIf="!start; else test" class="container">
+  <button (click)="isTestStart();">Start test</button>
+</div>
+<ng-template #test >
+ <div class="container">
+    <span> Test is on!</span>
+    <div *ngFor="let item of answerObj">{{item.word}}</div>
+    <hr>
+    <div *ngFor="let item of questionArray" (click)="selectAnswer(word)">{{item.translation}}</div>
+  </div>
+</ng-template>

@@ -14,6 +14,5 @@ export class SidebarComponent {
     let el = document.getElementById('toggle');
     this.show ? el.style.left = "0px" : el.style.left = "-15%";
     this.show = !this.show;
-    console.log(this.show);
   }
 }

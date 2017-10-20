@@ -1,4 +1,5 @@
 <div class="container">
+  <div *ngIf="words.length == 0"> Словарь  пуст! </div>
   <div  *ngFor="let word of words" >
 
     {{word.word}}.

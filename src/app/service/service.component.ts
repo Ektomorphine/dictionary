@@ -16,7 +16,6 @@ export class HttpService {
   constructor(private http: Http) {}
 
   public getData(url): any {
-    console.log('ok!');
     return this.http.get(url);
   }
 

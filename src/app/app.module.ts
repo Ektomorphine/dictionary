@@ -12,15 +12,17 @@ import { SidebarComponent } from './sidebar-component/sidebar.component';
 import { WordsComponent } from './words-component/words.component';
 import { HomeComponent } from './home-component/home.component';
 import { ListComponent } from './list-component/list.component';
+import { TestComponent } from './test-component/test.component';
 
 import { HttpService } from './service/service.component';
 
 import { CanDeactivateGuard } from './routing/exit.component';
 
 const appRoutes: Routes = [
-  { path: 'words', component: WordsComponent, canDeactivate: [CanDeactivateGuard]},
-  { path: '', component: HomeComponent},
-  { path: 'list', component: ListComponent}
+  { path: 'words', component: WordsComponent, canDeactivate: [CanDeactivateGuard] },
+  { path: '', component: HomeComponent },
+  { path: 'list', component: ListComponent },
+  { path: 'test', component: TestComponent }
 ];
 
 @NgModule({
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
     SidebarComponent,
     WordsComponent,
     HomeComponent,
-    ListComponent
+    ListComponent,
+    TestComponent
 
   ],
   imports: [
