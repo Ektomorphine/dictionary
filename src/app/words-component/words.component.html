@@ -1,5 +1,5 @@
 <div>
-  <form class="container text-basic-input" [formGroup]="addWordForm">
+  <form class="container text-basic-input" [formGroup]="addWordForm" #Form="ngForm">
     <fieldset>
       <legend>Add new word</legend>
       <p>Word:</p>
@@ -18,13 +18,15 @@
       <input class="input-option" type="text" name="transcription" placeholder="yabloko"
       [(ngModel)]="word.transcription" formControlName="transliteration" />
       <div *ngIf="addWordForm.controls['word'].valid && addWordForm.controls['translation'].valid; else unset">
-        <p><button class="button-submit" (click)="submit(word)">Send</button></p>
+        <p><button class="button-submit" (click)="submit(word); Form.reset()">Send</button></p>
       </div>
       <ng-template #unset>
         <div *ngIf="addWordForm.controls['word'].invalid || addWordForm.controls['translation'].invalid">
           <p><button class="button-submit disabled" disabled >Send</button></p>
+          <span *ngIf="saved == true"> OK! </span>
         </div>
       </ng-template>
     </fieldset>
   </form>
+  <button class="button-submit" id="dick" (click)="submit(word)">Send</button>
 </div>

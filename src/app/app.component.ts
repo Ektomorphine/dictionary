@@ -8,4 +8,5 @@ import { HeaderComponent } from './header-component/header.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+debugger;
 }

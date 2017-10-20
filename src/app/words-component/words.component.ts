@@ -1,6 +1,6 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit, DoCheck } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms'
-import {CanDeactivate} from "@angular/router";
+import { CanDeactivate } from "@angular/router";
 
 
 import { Word } from './../models/word.model';
@@ -18,43 +18,33 @@ import { Observable } from "rxjs/Rx";
 })
 export class WordsComponent implements OnInit {
 
-  public saved = true;
+  public saved: boolean = false;
   public word: Word = new Word();
   public addWordForm: FormGroup;
 
-  constructor(public http: HttpService) {
+  constructor(public http: HttpService) {}
 
+  ngOnInit() {
     this.addWordForm  = new FormGroup ({
     "word": new FormControl("", Validators.required),
     "translation": new FormControl("", Validators.required),
     "transliteration": new FormControl("", Validators.required)
-     });
-  }
-
-  ngOnInit() {
-    this.addWordForm.valueChanges.subscribe(data => console.log(data));
-
+    });
   }
 
   public submit(object: Word): any {
     this.http.addWord(object)
-             .subscribe((data)=> { this.word=data;});
+             .subscribe();
+    this.saved = !this.saved;
 
   }
 
    canDeactivate(): boolean {
-    console.log('i am navigating away');
-
-
-    if (document.getElementsByClassName('ng-valid')) {
-      console.log('Work guard');
-      return window.confirm('Discard changes?');
+    if (this.addWordForm.controls.word.value ||
+        this.addWordForm.controls.translation.value ||
+        this.addWordForm.controls.transliteration.value) {
+      return window.confirm('Есть несохраненные изменения. Удалить их?');
     }
-
     return true;
-}
-
-
-
-
+  }
 }

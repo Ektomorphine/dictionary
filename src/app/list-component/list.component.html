@@ -1,0 +1,13 @@
+<div class="container">
+  <div  *ngFor="let word of words" >
+
+    {{word.word}}.
+    <p>
+      Translation: {{word.translation}}.
+      Translitaration: {{word.transcription}}
+      <button (click)="deleteSelectedWord(word)">
+        Delete
+      </button>
+    </p>
+  </div>
+</div>

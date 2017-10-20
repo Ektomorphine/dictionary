@@ -10,21 +10,27 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header-component/header.component';
 import { SidebarComponent } from './sidebar-component/sidebar.component';
 import { WordsComponent } from './words-component/words.component';
+import { HomeComponent } from './home-component/home.component';
+import { ListComponent } from './list-component/list.component';
 
 import { HttpService } from './service/service.component';
 
 import { CanDeactivateGuard } from './routing/exit.component';
 
-const appRoutes: Routes =[
-  { path: 'words', component: WordsComponent, canDeactivate: [CanDeactivateGuard]}
-]
+const appRoutes: Routes = [
+  { path: 'words', component: WordsComponent, canDeactivate: [CanDeactivateGuard]},
+  { path: '', component: HomeComponent},
+  { path: 'list', component: ListComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SidebarComponent,
-    WordsComponent
+    WordsComponent,
+    HomeComponent,
+    ListComponent
 
   ],
   imports: [

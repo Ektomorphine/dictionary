@@ -15,19 +15,21 @@ export class HttpService {
 
   constructor(private http: Http) {}
 
-  public getData(): any {
-    return this.http.get('../assets/word.json');
+  public getData(url): any {
+    console.log('ok!');
+    return this.http.get(url);
   }
 
   public addWord(object1: Word): any {
     const body = JSON.stringify(object1);
     let headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
-
-    console.log('im ok!');
-    console.log(object1);
     return this.http.post('http://localhost:3000/words', body, { headers: headers})
                     .map((resp:Response)=>resp.json());
+  }
 
+  public deleteWord(url): any {
+    console.log(url);
+    return this.http.delete(url).subscribe();
   }
 
 }
