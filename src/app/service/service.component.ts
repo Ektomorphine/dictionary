@@ -21,9 +21,9 @@ export class HttpService {
 
   public addWord(object1: Word): any {
     const body = JSON.stringify(object1);
-    let headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
+    const headers = new Headers({ 'Content-Type': 'application/json;charset=utf-8' });
     return this.http.post('http://localhost:3000/words', body, { headers: headers})
-                    .map((resp:Response)=>resp.json());
+                    .map((resp: Response) => resp.json());
   }
 
   public deleteWord(url): any {

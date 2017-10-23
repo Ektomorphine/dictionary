@@ -1,13 +1,13 @@
 import { Component, NgModule, OnInit, DoCheck } from '@angular/core';
-import { FormGroup, FormControl, Validators} from '@angular/forms'
-import { CanDeactivate } from "@angular/router";
+import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { CanDeactivate } from '@angular/router';
 
 
 import { Word } from './../models/word.model';
 import { HttpService } from './../service/service.component';
 import { CanDeactivateGuard } from './../routing/exit.component';
 
-import { Observable } from "rxjs/Rx";
+import { Observable } from 'rxjs/Rx';
 
 
 
@@ -18,7 +18,7 @@ import { Observable } from "rxjs/Rx";
 })
 export class WordsComponent implements OnInit {
 
-  public saved: boolean = false;
+  public saved = false;
   public word: Word = new Word();
   public addWordForm: FormGroup;
 
@@ -26,9 +26,9 @@ export class WordsComponent implements OnInit {
 
   ngOnInit() {
     this.addWordForm  = new FormGroup ({
-    "word": new FormControl("", Validators.required),
-    "translation": new FormControl("", Validators.required),
-    "transliteration": new FormControl("", Validators.required)
+    'word': new FormControl('', Validators.required),
+    'translation': new FormControl('', Validators.required),
+    'transliteration': new FormControl('', Validators.required)
     });
   }
 

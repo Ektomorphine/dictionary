@@ -8,11 +8,11 @@ $input-option-color: #2da9f0;
 $word-info-bgc: #f0f8ff;
 
 .text-basic-link {
-  position: relative;
-  font-family: monospace;
   color: #fff;
-  transition: .5s;
+  font-family: monospace;
   left: 0px;
+  position: relative;
+  transition: .5s;
 
   &:hover {
     left: 10px;
@@ -24,11 +24,11 @@ $word-info-bgc: #f0f8ff;
 }
 
 .container {
-  position: absolute;
-  top: 66px;
+  height: 90%;
   margin: auto;
   padding: 30px;
-  width: 82%;
-  height: 90%;
+  position: absolute;
   right: 0;
+  top: 66px;
+  width: 82%;
 }

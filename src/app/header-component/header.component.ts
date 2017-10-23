@@ -10,6 +10,6 @@ import { SidebarComponent} from './../sidebar-component/sidebar.component';
 })
 export class HeaderComponent {
 
-  constructor(public sidebar: SidebarComponent){}
+  constructor(public sidebar: SidebarComponent) {}
 
 }

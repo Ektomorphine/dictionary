@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { HttpService } from './../service/service.component';
 import { Word } from './../models/word.model';
 
@@ -13,14 +12,13 @@ export class TestComponent {
   public url = 'http://localhost:3000/words/';
   public start = false;
   public randomNumber: number;
-  private wordArray: Word[] = []; // Parent array of words
+  public wordArray: Word[] = []; // Parent array of words
   public qestionWordArray: Word[] = [];  // Array for questions, which one reduce with time
-  public questionArray: Word[] = []; //6
+  public questionArray: Word[] = []; // 6 answers
   public answerObj: Word; //
   public selectedAnswer: Word;
   public countAnswers = 0;
   public indexOfCorrectWord = 0;
-  public empty = false;
 
   constructor(public http: HttpService) {}
 
@@ -30,8 +28,7 @@ export class TestComponent {
         this.wordArray.push(word);
       });
     });
-    this.randomNumber = this.random(0, 6); //init random number [1..6] for selecting random word
-    this.emptyDictionary();
+    this.randomNumber = this.random(0, 6); // init random number [1..6] for selecting random word
   }
 
   public isTestStart(): void { // f for start test
@@ -41,16 +38,12 @@ export class TestComponent {
     this.selectQuestion();
   }
 
-  public emptyDictionary(): void {
-    this.wordArray.length == 0 ? this.empty = false : this.empty = true;
-  }
-
   public nextQuestion(): any { // func for next question
      if (this.selectedAnswer.id === this.answerObj.id) { // check for right answer
        this.countAnswers++;
      }
      this.indexOfCorrectWord = this.qestionWordArray.indexOf(this.answerObj); // set index of correct word
-     this.qestionWordArray.splice(this.indexOfCorrectWord,1); // delete word from array to escape repeating same question
+     this.qestionWordArray.splice(this.indexOfCorrectWord, 1); // delete word from array to escape repeating same question
      this.questionArray = [];
      this.randomNumber = this.random(0, 6); // new random number
      this.sliceArray();
@@ -61,7 +54,7 @@ export class TestComponent {
      }
   }
 
-  public random(min, max): number { //randomize func
+  public random(min, max): number { // randomize func
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
@@ -77,7 +70,7 @@ export class TestComponent {
   }
 
   public selectQuestion(): any {
-    this.answerObj = this.questionArray.slice(this.randomNumber,this.randomNumber+1)[0];
+    this.answerObj = this.questionArray.slice(this.randomNumber, this.randomNumber + 1)[0];
   }
 
   public selectAnswer(word: Word): any {

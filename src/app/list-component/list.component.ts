@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { HttpService } from './../service/service.component';
 import { Word } from './../models/word.model';
 import { Response } from '@angular/http';
@@ -22,7 +22,7 @@ export class ListComponent {
   }
 
   public deleteSelectedWord(word): void {
-    let toDeleteUrl = this.url+word.id;
+    const toDeleteUrl = this.url + word.id;
     this.words.splice(this.words.indexOf(word), 1);
     this.http.deleteWord(toDeleteUrl);
 
