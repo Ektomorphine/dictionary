@@ -1,1 +1,23 @@
 @import '../variables';
+
+.image {
+  position: relative;
+  width: 80%;
+}
+
+.header-text {
+  display: block;
+  text-transform: uppercase;
+  left: 20px;
+  width: 30%;
+  margin: auto;
+}
+
+hr {
+  position: relative;
+  width: 50%;
+  left: -10%;
+  height: 12px;
+  border: 0;
+  box-shadow: inset 0 12px 12px -12px rgba(0,0,0,0.5);
+}

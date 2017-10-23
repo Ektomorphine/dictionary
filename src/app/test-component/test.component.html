@@ -1,11 +1,16 @@
 <div *ngIf="!start; else test" class="container">
   <button (click)="isTestStart();">Start test</button>
+  <div *ngIf="wordArray.length == 0"> Dictionary is empty! </div>
 </div>
 <ng-template #test >
  <div class="container">
     <span> Test is on!</span>
-    <div *ngFor="let item of answerObj">{{item.word}}</div>
+    <div>{{answerObj.word}}</div>
     <hr>
-    <div *ngFor="let item of questionArray" (click)="selectAnswer(word)">{{item.translation}}</div>
+    <div *ngFor="let item of questionArray">
+      <span (click)="selectAnswer(item)">{{item.translation}}</span>
+    </div>
+    <button (click)="nextQuestion()"> Next question  </button>
   </div>
+
 </ng-template>

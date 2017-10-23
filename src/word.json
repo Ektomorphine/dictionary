@@ -109,16 +109,16 @@
       "id": 17
     },
     {
-      "word": "Table",
-      "translation": "Стол",
-      "transcription": "Stol",
-      "id": 18
-    },
-    {
       "word": "Window",
       "translation": "Окно",
       "transcription": "Okno",
       "id": 19
+    },
+    {
+      "word": "Cigarets",
+      "translation": "Сигареты",
+      "transcription": "Sigarety",
+      "id": 20
     }
   ]
 }

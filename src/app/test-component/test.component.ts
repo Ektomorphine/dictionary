@@ -13,49 +13,75 @@ export class TestComponent {
   public url = 'http://localhost:3000/words/';
   public start = false;
   public randomNumber: number;
-  public wordArray: Word[] = [];
-  public questionArray: Word[] = [];
-  public answerObj: Word[] = [];
+  private wordArray: Word[] = []; // Parent array of words
+  public qestionWordArray: Word[] = [];  // Array for questions, which one reduce with time
+  public questionArray: Word[] = []; //6
+  public answerObj: Word; //
   public selectedAnswer: Word;
+  public countAnswers = 0;
+  public indexOfCorrectWord = 0;
+  public empty = false;
 
   constructor(public http: HttpService) {}
 
-  ngOnInit(){
-   this.http.getData(this.url)
+  ngOnInit() {
+   this.http.getData(this.url) // get data from server
     .subscribe(data => {data.json().forEach(word => {
         this.wordArray.push(word);
       });
     });
-    this.randomNumber = this.random(0,6);
-    console.log(this.randomNumber);
-
+    this.randomNumber = this.random(0, 6); //init random number [1..6] for selecting random word
+    this.emptyDictionary();
   }
 
-  public isTestStart(): void {
+  public isTestStart(): void { // f for start test
     this.start = !this.start;
-    console.log(this.wordArray);
+    this.qestionWordArray = this.wordArray.slice();
     this.sliceArray();
     this.selectQuestion();
-
   }
 
-  public random(min, max): number {
+  public emptyDictionary(): void {
+    this.wordArray.length == 0 ? this.empty = false : this.empty = true;
+  }
+
+  public nextQuestion(): any { // func for next question
+     if (this.selectedAnswer.id === this.answerObj.id) { // check for right answer
+       this.countAnswers++;
+     }
+     this.indexOfCorrectWord = this.qestionWordArray.indexOf(this.answerObj); // set index of correct word
+     this.qestionWordArray.splice(this.indexOfCorrectWord,1); // delete word from array to escape repeating same question
+     this.questionArray = [];
+     this.randomNumber = this.random(0, 6); // new random number
+     this.sliceArray();
+     this.selectQuestion();
+
+     if (this.qestionWordArray.length === 0) { // end of test and results
+       alert('Correct answers = ' + this.countAnswers);
+     }
+  }
+
+  public random(min, max): number { //randomize func
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
-  public sliceArray(): any {
-     this.questionArray = this.wordArray.slice(this.randomNumber,this.randomNumber+6);
-     console.log(this.questionArray);
+  public sliceArray(): any { // func for getting 6 answer words
+    let count = 0;
+    while (count < 6) {
+      const rand = this.wordArray[this.random(0, this.wordArray.length)];
+      if (this.questionArray.indexOf(rand) === -1) {
+        this.questionArray.push(rand);
+        ++count;
+      }
+    }
   }
 
   public selectQuestion(): any {
-    this.answerObj = this.questionArray.slice(this.randomNumber,this.randomNumber+1);
-    console.log(this.answerObj);
+    this.answerObj = this.questionArray.slice(this.randomNumber,this.randomNumber+1)[0];
   }
 
-  public selectAnswer(word: Word): void {
+  public selectAnswer(word: Word): any {
     this.selectedAnswer = word;
-    console.log(this.selectAnswer(word));
   }
 
 }
