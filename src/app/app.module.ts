@@ -7,22 +7,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header-component/header.component';
-import { SidebarComponent } from './sidebar-component/sidebar.component';
-import { WordsComponent } from './words-component/words.component';
-import { HomeComponent } from './home-component/home.component';
-import { ListComponent } from './list-component/list.component';
-import { TestComponent } from './test-component/test.component';
+import { HeaderComponent } from './components/header-component/header.component';
+import { SidebarComponent } from './components/sidebar-component/sidebar.component';
+import { WordsPage } from './pages/words-page/words.page';
+import { HomePage } from './pages/home-page/home.page';
+import { ListPage } from './pages/list-page/list.page';
+import { TestPage } from './pages/test-page/test.page';
 
-import { HttpService } from './service/service.component';
-
-import { CanDeactivateGuard } from './routing/exit.component';
+import { WordService } from './services/word.service';
+import { CanDeactivateGuard } from './services/guard.service';
 
 const appRoutes: Routes = [
-  { path: 'words', component: WordsComponent, canDeactivate: [CanDeactivateGuard] },
-  { path: '', component: HomeComponent },
-  { path: 'list', component: ListComponent },
-  { path: 'test', component: TestComponent }
+  { path: 'words', component: WordsPage, canDeactivate: [CanDeactivateGuard] },
+  { path: '', component: HomePage },
+  { path: 'list', component: ListPage },
+  { path: 'test', component: TestPage }
 ];
 
 @NgModule({
@@ -30,10 +29,10 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     SidebarComponent,
-    WordsComponent,
-    HomeComponent,
-    ListComponent,
-    TestComponent
+    WordsPage,
+    HomePage,
+    ListPage,
+    TestPage
 
   ],
   imports: [
@@ -43,8 +42,8 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  bootstrap: [ AppComponent],
-  providers: [ HttpService, CanDeactivateGuard ]
+  bootstrap: [ AppComponent ],
+  providers: [ WordService, CanDeactivateGuard ]
 })
 export class AppModule {
 }

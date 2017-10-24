@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from './../service/service.component';
-import { Word } from './../models/word.model';
+import { WordService } from './../../services/word.service';
+import { Word } from './../../models/word.model';
 
 @Component({
-  selector: 'app-test-component',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss']
+  selector: 'app-test-page',
+  templateUrl: './test.page.html',
+  styleUrls: ['./test.page.scss']
 })
-export class TestComponent {
+export class TestPage {
 
-  public url = 'http://localhost:3000/words/';
   public start = false;
   public randomNumber: number;
   public wordArray: Word[] = []; // Parent array of words
@@ -20,10 +19,10 @@ export class TestComponent {
   public countAnswers = 0;
   public indexOfCorrectWord = 0;
 
-  constructor(public http: HttpService) {}
+  constructor(public http: WordService) {}
 
   ngOnInit() {
-   this.http.getData(this.url) // get data from server
+   this.http.getWords() // get data from server
     .subscribe(data => {data.json().forEach(word => {
         this.wordArray.push(word);
       });
@@ -51,6 +50,8 @@ export class TestComponent {
 
      if (this.qestionWordArray.length === 0) { // end of test and results
        alert('Correct answers = ' + this.countAnswers);
+       location.reload();
+
      }
   }
 

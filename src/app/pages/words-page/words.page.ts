@@ -3,26 +3,26 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { CanDeactivate } from '@angular/router';
 
 
-import { Word } from './../models/word.model';
-import { HttpService } from './../service/service.component';
-import { CanDeactivateGuard } from './../routing/exit.component';
+import { Word } from './../../models/word.model';
+import { WordService } from './../../services/word.service';
+import { CanDeactivateGuard } from './../../services/guard.service';
 
 import { Observable } from 'rxjs/Rx';
 
 
 
 @Component({
-  selector: 'app-words-component',
-  templateUrl: './words.component.html',
-  styleUrls: ['./words.component.scss']
+  selector: 'app-words-page',
+  templateUrl: './words.page.html',
+  styleUrls: ['./words.page.scss']
 })
-export class WordsComponent implements OnInit {
+export class WordsPage implements OnInit {
 
   public saved = false;
   public word: Word = new Word();
   public addWordForm: FormGroup;
 
-  constructor(public http: HttpService) {}
+  constructor(public http: WordService) {}
 
   ngOnInit() {
     this.addWordForm  = new FormGroup ({
