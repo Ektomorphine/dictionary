@@ -8,7 +8,7 @@
     <div>{{answerObj.word}}</div>
     <hr>
     <div *ngFor="let item of questionArray">
-      <span (click)="selectAnswer(item)">{{item.translation}}</span>
+      <button (click)="selectAnswer(item)" class="answer-item">{{item.translation}}</button>
     </div>
     <button (click)="nextQuestion()"> Next question  </button>
   </div>
