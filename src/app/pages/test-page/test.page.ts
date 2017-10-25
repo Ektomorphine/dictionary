@@ -9,14 +9,13 @@ import { Word } from './../../models/word.model';
 })
 export class TestPage {
 
+  private randomNumber: number;
+  private questionWordArray: Word[] = [];  // Array for questions, which one reduce with time
+  private questionArray: Word[] = []; // 6 answers
+  private selectedAnswer: Word;
   public start = false;
-  public randomNumber: number;
   public wordArray: Word[] = []; // Parent array of words
-  public qestionWordArray: Word[] = [];  // Array for questions, which one reduce with time
-  public questionArray: Word[] = []; // 6 answers
   public answerObj: Word; //
-  public selectedAnswer: Word;
-  public countAnswers = 0;
   public indexOfCorrectWord = 0;
 
   constructor(public http: WordService) {}
@@ -32,24 +31,26 @@ export class TestPage {
 
   public isTestStart(): void { // f for start test
     this.start = !this.start;
-    this.qestionWordArray = this.wordArray.slice();
+    this.questionWordArray = this.wordArray.slice();
     this.sliceArray();
     this.selectQuestion();
+    this.nextQuestion();
   }
 
   public nextQuestion(): any { // func for next question
+     let countAnswers = 0;
      if (this.selectedAnswer.id === this.answerObj.id) { // check for right answer
-       this.countAnswers++;
+        countAnswers++;
      }
-     this.indexOfCorrectWord = this.qestionWordArray.indexOf(this.answerObj); // set index of correct word
-     this.qestionWordArray.splice(this.indexOfCorrectWord, 1); // delete word from array to escape repeating same question
+     this.indexOfCorrectWord = this.questionWordArray.indexOf(this.answerObj); // set index of correct word
+     this.questionWordArray.splice(this.indexOfCorrectWord, 1); // delete word from array to escape repeating same question
      this.questionArray = [];
      this.randomNumber = this.random(0, 6); // new random number
      this.sliceArray();
      this.selectQuestion();
 
-     if (this.qestionWordArray.length === 0) { // end of test and results
-       alert('Correct answers = ' + this.countAnswers);
+     if (this.questionWordArray.length === 0) { // end of test and results
+       alert('Correct answers = ' + countAnswers);
        location.reload();
 
      }

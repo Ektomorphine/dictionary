@@ -1,7 +1,6 @@
 <div class="container" id="toggle">
   <div *ngIf="words.length == 0"> Словарь  пуст! </div>
-  <div  *ngFor="let word of words" >
-
+  <div  *ngFor="let word of words">
     {{word.word}}.
     <p>
       Translation: {{word.translation}}.
