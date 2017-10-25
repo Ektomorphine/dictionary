@@ -12,7 +12,8 @@ export class TestPage {
   private randomNumber: number;
   private questionWordArray: Word[] = [];  // Array for questions, which one reduce with time
   private questionArray: Word[] = []; // 6 answers
-  private selectedAnswer: Word;
+  private countAnswers = 0;
+  public selectedAnswer: Word;
   public start = false;
   public wordArray: Word[] = []; // Parent array of words
   public answerObj: Word; //
@@ -29,18 +30,16 @@ export class TestPage {
     this.randomNumber = this.random(0, 6); // init random number [1..6] for selecting random word
   }
 
-  public isTestStart(): void { // f for start test
+  public TestStart(): void { // f for start test
     this.start = !this.start;
     this.questionWordArray = this.wordArray.slice();
     this.sliceArray();
     this.selectQuestion();
-    this.nextQuestion();
   }
 
   public nextQuestion(): any { // func for next question
-     let countAnswers = 0;
-     if (this.selectedAnswer.id === this.answerObj.id) { // check for right answer
-        countAnswers++;
+     if (this.selectedAnswer.id === this.answerObj.id) {
+       this.countAnswers++;
      }
      this.indexOfCorrectWord = this.questionWordArray.indexOf(this.answerObj); // set index of correct word
      this.questionWordArray.splice(this.indexOfCorrectWord, 1); // delete word from array to escape repeating same question
@@ -48,11 +47,9 @@ export class TestPage {
      this.randomNumber = this.random(0, 6); // new random number
      this.sliceArray();
      this.selectQuestion();
-
      if (this.questionWordArray.length === 0) { // end of test and results
-       alert('Correct answers = ' + countAnswers);
+       alert('Correct answers = ' + this.countAnswers);
        location.reload();
-
      }
   }
 
@@ -77,6 +74,7 @@ export class TestPage {
 
   public selectAnswer(word: Word): any {
     this.selectedAnswer = word;
+    this.nextQuestion();
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, NgModule, OnInit, DoCheck } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { CanDeactivate } from '@angular/router';
+import { AbstractControl } from '@angular/forms';
 
 
 import { Word } from './../../models/word.model';
@@ -36,13 +37,10 @@ export class WordsPage implements OnInit {
     this.http.addWord(object)
              .subscribe();
     this.saved = !this.saved;
-
   }
 
    canDeactivate(): boolean {
-    if (this.addWordForm.controls.word.value ||
-        this.addWordForm.controls.translation.value ||
-        this.addWordForm.controls.transliteration.value) {
+    if (!this.addWordForm.pristine) {
       return window.confirm('Есть несохраненные изменения. Удалить их?');
     }
     return true;

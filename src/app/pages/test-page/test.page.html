@@ -1,5 +1,5 @@
 <div *ngIf="!start; else test" class="container">
-  <button (click)="isTestStart();">Start test</button>
+  <button (click)="TestStart();">Start test</button>
   <div *ngIf="wordArray.length == 0"> Dictionary is empty! </div>
 </div>
 <ng-template #test >
@@ -8,7 +8,7 @@
     <div>{{answerObj.word}}</div>
     <hr>
     <div *ngFor="let item of questionArray">
-      <button (click)="selectAnswer(item)" class="answer-item">{{item.translation}}</button>
+      <button (click)="selectAnswer(item);" class="answer-item">{{item.translation}}</button>
     </div>
     <!-- <button (click)="nextQuestion()"> Next question  </button> -->
   </div>

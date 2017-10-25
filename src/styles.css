@@ -1,8 +1,4 @@
-/*.ng-valid[required], .ng-valid.required  {
-  border-left: 5px solid #42A948;
-}
+.sidebar-opened .sidebar-opened-child {
+  left: -15% !important;
+  }
 
-.ng-invalid:not(form)  {
-  border-left: 5px solid #a94442;
-}
-*/

@@ -29,8 +29,8 @@ export class WordService {
       .map((resp: Response) => resp.json());
   }
 
-  public deleteWord(url): Observable<Response> {
-    return this.http.delete(url);
+  public deleteWord(url): any {
+    return this.http.delete(url).subscribe();
   }
 
 }

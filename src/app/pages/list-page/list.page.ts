@@ -24,7 +24,6 @@ export class ListPage {
     const toDeleteUrl = WORDS_URL + word.id;
     this.words.splice(this.words.indexOf(word), 1);
     this._wordService.deleteWord(toDeleteUrl);
-    console.log("URL:",toDeleteUrl);
   }
 
 }
