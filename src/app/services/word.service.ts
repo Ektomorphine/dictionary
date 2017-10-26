@@ -14,11 +14,8 @@ export class WordService {
 
   constructor(private http: Http) {}
 
-   // public cos list.component.ts use this var. for concat. with word.id
-
   public getWords(): any {
-    return this.http
-      .get(URL);
+    return this.http.get(URL);
   }
 
   public addWord(object1: Word): any {

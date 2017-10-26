@@ -6,11 +6,9 @@ import { AbstractControl } from '@angular/forms';
 
 import { Word } from './../../models/word.model';
 import { WordService } from './../../services/word.service';
-import { CanDeactivateGuard } from './../../services/guard.service';
+import { WordsGuard } from './../../services/words-guard.service';
 
 import { Observable } from 'rxjs/Rx';
-
-
 
 @Component({
   selector: 'app-words-page',
@@ -23,7 +21,7 @@ export class WordsPage implements OnInit {
   public word: Word = new Word();
   public addWordForm: FormGroup;
 
-  constructor(public http: WordService) {}
+  constructor(public _wordservice: WordService) {}
 
   ngOnInit() {
     this.addWordForm  = new FormGroup ({
@@ -34,7 +32,7 @@ export class WordsPage implements OnInit {
   }
 
   public submit(object: Word): any {
-    this.http.addWord(object)
+    this._wordservice.addWord(object)
              .subscribe();
     this.saved = !this.saved;
   }

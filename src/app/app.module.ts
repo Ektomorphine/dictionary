@@ -15,10 +15,10 @@ import { ListPage } from './pages/list-page/list.page';
 import { TestPage } from './pages/test-page/test.page';
 
 import { WordService } from './services/word.service';
-import { CanDeactivateGuard } from './services/guard.service';
+import { WordsGuard } from './services/words-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'words', component: WordsPage, canDeactivate: [CanDeactivateGuard] },
+  { path: 'words', component: WordsPage, canDeactivate: [WordsGuard] },
   { path: '', component: HomePage },
   { path: 'list', component: ListPage },
   { path: 'test', component: TestPage }
@@ -43,7 +43,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule
   ],
   bootstrap: [ AppComponent ],
-  providers: [ WordService, CanDeactivateGuard ]
+  providers: [ WordService, WordsGuard ]
 })
 export class AppModule {
 }

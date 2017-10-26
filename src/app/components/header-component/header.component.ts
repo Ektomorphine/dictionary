@@ -14,7 +14,6 @@ export class HeaderComponent {
               private _renderer: Renderer2) {}
 
   public onToggle() {
-
     if (this.open_sidebar) {
       this._renderer.addClass(this._document.body, 'sidebar-opened');
     } else {
