@@ -1,0 +1,11 @@
+@import '../../variables';
+
+p {
+  background-color: $word-info-bgc;
+  padding: 10px;
+  border-color: black;
+}
+
+button {
+  float: right;
+}

@@ -1,0 +1,124 @@
+{
+  "words": [
+    {
+      "word": "Pen",
+      "translation": "Ручка",
+      "transcription": "Ruchka",
+      "id": 1
+    },
+    {
+      "word": "Apple",
+      "translation": "Яблоко",
+      "transcription": "Yabloko",
+      "id": 1
+    },
+    {
+      "word": "Table",
+      "translation": "Стол",
+      "transcription": "Stol",
+      "id": 2
+    },
+    {
+      "word": "Bag",
+      "translation": "Сумка",
+      "transcription": "Sumka",
+      "id": 3
+    },
+    {
+      "word": "Spoon",
+      "translation": "Ложка",
+      "transcription": "Lozhka",
+      "id": 4
+    },
+    {
+      "word": "Water",
+      "translation": "Вода",
+      "transcription": "Voda",
+      "id": 5
+    },
+    {
+      "word": "Book",
+      "translation": "Книга",
+      "transcription": "Kniga",
+      "id": 6
+    },
+    {
+      "word": "Computer",
+      "translation": "Компьютер",
+      "transcription": "Computer",
+      "id": 7
+    },
+    {
+      "word": "Phone",
+      "translation": "Телефон",
+      "transcription": "Telephone",
+      "id": 8
+    },
+    {
+      "word": "Mouse",
+      "translation": "Мышь",
+      "transcription": "Mysh'",
+      "id": 9
+    },
+    {
+      "word": "Word",
+      "translation": "Слово",
+      "transcription": "Slovo",
+      "id": 10
+    },
+    {
+      "word": "Keyboard",
+      "translation": "Клавиатура",
+      "transcription": "Klaviatura",
+      "id": 11
+    },
+    {
+      "word": "Page",
+      "translation": "Страница",
+      "transcription": "Stranica",
+      "id": 12
+    },
+    {
+      "word": "Dictionary",
+      "translation": "Словарь",
+      "transcription": "Slovar'",
+      "id": 13
+    },
+    {
+      "word": "Headphones",
+      "translation": "Наушники ",
+      "transcription": "Naushniki",
+      "id": 14
+    },
+    {
+      "word": "User",
+      "translation": "Пользователь",
+      "transcription": null,
+      "id": 15
+    },
+    {
+      "word": "Street",
+      "translation": "Улица",
+      "transcription": "Ulica",
+      "id": 16
+    },
+    {
+      "word": "House",
+      "translation": "Дом",
+      "transcription": "Dom",
+      "id": 17
+    },
+    {
+      "word": "Window",
+      "translation": "Окно",
+      "transcription": "Okno",
+      "id": 19
+    },
+    {
+      "word": "Cigarets",
+      "translation": "Сигареты",
+      "transcription": "Sigarety",
+      "id": 20
+    }
+  ]
+}

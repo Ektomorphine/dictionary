@@ -1,0 +1,23 @@
+@import '../../variables';
+
+.answer-item {
+  background-color: $header-button-static;
+  border-radius: 4px;
+  border: 0;
+  color: $text-color-header;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  transition: .3s;
+  width: 150px;
+
+  &:focus {
+    background-color: $header-button-hover;
+    cursor: pointer;
+  }
+
+  &:hover {
+    background-color: $header-button-hover;
+    cursor: pointer;
+  }
+}

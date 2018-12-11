@@ -1,0 +1,14 @@
+import { Component, ElementRef } from '@angular/core';
+import { NgStyle } from '@angular/common';
+
+
+import { HeaderComponent } from './../header-component/header.component';
+
+@Component({
+  selector: 'app-sidebar-component',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss'],
+})
+export class SidebarComponent {
+
+}

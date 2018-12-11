@@ -1,0 +1,34 @@
+$header-bgc: #2776cb;
+$text-color-header: #fff;
+
+$header-button-hover: #6ba0d8;
+$header-button-static: #2776cb;
+
+$input-option-color: #2da9f0;
+$word-info-bgc: #f0f8ff;
+
+.text-basic-link {
+  color: #fff;
+  font-family: monospace;
+  left: 0px;
+  position: relative;
+  transition: .5s;
+
+  &:hover {
+    left: 10px;
+  }
+}
+
+.text-basic-input {
+  font-family: 'Open Sans';
+}
+
+.container {
+  height: 90%;
+  margin: auto;
+  padding: 30px;
+  position: absolute;
+  right: 0;
+  top: 66px;
+  width: 82%;
+}

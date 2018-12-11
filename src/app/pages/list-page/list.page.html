@@ -1,0 +1,13 @@
+<div class="container" id="toggle">
+  <div *ngIf="words.length == 0"> Словарь  пуст! </div>
+  <div  *ngFor="let word of words">
+    {{word.word}}.
+    <p>
+      Translation: {{word.translation}}.
+      Translitaration: {{word.transcription}}
+      <button (click)="deleteSelectedWord(word)">
+        Delete
+      </button>
+    </p>
+  </div>
+</div>

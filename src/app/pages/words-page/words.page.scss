@@ -1,0 +1,44 @@
+@import '../../variables';
+
+input {
+  border-color: $header-bgc;
+  border-radius: 8px;
+  border-style: solid;
+  outline: 0;
+  padding: 6px;
+  width: 15%;
+}
+
+.button-submit {
+  background-color: #fff;
+  border-radius: 8px;
+  border: 2px solid $header-bgc;
+  cursor: pointer;
+  outline: 0;
+  padding: 6px;
+  text-transform: uppercase;
+  width: 16%;
+}
+
+input.ng-touched.ng-invalid {
+  border: solid red 2px;
+}
+
+input.ng-touched.ng-valid {
+  border: solid green 2px;
+}
+
+.form-hint {
+  color: gray;
+  display: inline;
+  font-style: italic;
+  padding-left: 10px;
+}
+
+.disabled:hover {
+  cursor: not-allowed;
+}
+
+.input-option {
+  border-color: $input-option-color !important;
+}

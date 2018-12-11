@@ -1,0 +1,32 @@
+<div>
+  <form class="container text-basic-input" [formGroup]="addWordForm" #Form="ngForm">
+    <fieldset>
+      <legend>Add new word</legend>
+      <p>Word:</p>
+      <input type="text" name="word" placeholder="apple" [(ngModel)]="word.word" formControlName="word"/>
+      <div class="form-hint" *ngIf="addWordForm.controls['word'].invalid && addWordForm.controls['word'].touched">
+        Required to fill!
+      </div>
+      <p>Translation:</p>
+      <input type="text" name="translation" placeholder="яблоко"
+      [(ngModel)]="word.translation" formControlName="translation"/>
+      <div class="form-hint"
+      *ngIf="addWordForm.controls['translation'].invalid && addWordForm.controls['translation'].touched">
+        Required to fill!
+      </div>
+      <p>Transliteration (optional):</p>
+      <input class="input-option" type="text" name="transcription" placeholder="yabloko"
+      [(ngModel)]="word.transcription" formControlName="transliteration" />
+      <div *ngIf="addWordForm.controls['word'].valid && addWordForm.controls['translation'].valid; else unset">
+        <p><button class="button-submit" (click)="submit(word); Form.reset()">Send</button></p>
+      </div>
+      <ng-template #unset>
+        <div *ngIf="addWordForm.controls['word'].invalid || addWordForm.controls['translation'].invalid">
+          <p><button class="button-submit disabled" disabled >Send</button></p>
+          <span *ngIf="saved == true"> OK! </span>
+        </div>
+      </ng-template>
+    </fieldset>
+  </form>
+  <button class="button-submit" (click)="submit(word)">Send</button>
+</div>
